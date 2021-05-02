@@ -13,6 +13,4 @@ public class UDPService {
         datagramSocket.receive(datagramPacket);
         System.out.println(Arrays.toString(datagramPacket.getData()));
     }
-
-
 }
