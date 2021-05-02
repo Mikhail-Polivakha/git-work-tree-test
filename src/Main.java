@@ -7,6 +7,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         var fileReader = new FileReader(new File("/etc/group"));
         var bufferedReader = new BufferedReader(fileReader);
-        System.out.println(bufferedReader.readLine());
+	String line;
+	while ((line = bufferedReader.readLine()) != null) {
+		System.out.println(line);
+	}
     }
 }
