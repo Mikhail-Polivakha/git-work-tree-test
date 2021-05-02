@@ -7,9 +7,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         var fileReader = new FileReader(new File("/etc/group"));
         var bufferedReader = new BufferedReader(fileReader);
-	String line;
-	while ((line = bufferedReader.readLine()) != null) {
-		System.out.println(line);
-	}
+        System.out.println(bufferedReader.readLine());
+        init();
+    }
+
+    public static void init() {
+        try {
+            new UDPService().openSocket();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }
