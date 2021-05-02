@@ -8,10 +8,19 @@ public class Main {
         var fileReader = new FileReader(new File("/etc/group"));
         var bufferedReader = new BufferedReader(fileReader);
         System.out.println(bufferedReader.readLine());
-        init();
+        initUDPSocket();
+        initTCPSocket();
     }
 
-    public static void init() {
+    private static void initTCPSocket() {
+        try {
+            TCPSocketProvider.open();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+
+    public static void initUDPSocket() {
         try {
             new UDPService().openSocket();
         } catch (IOException exception) {
